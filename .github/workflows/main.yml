@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Node.js 20  # Ensure Node.js 20 is used
+    - name: Set up Node.js 20  # Use Node.js 20 explicitly
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '20'  # Ensure the node version is set to 20
 
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3  # Already on v3, compatible with Node.js 20
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
+      uses: aws-actions/configure-aws-credentials@v2  # Already compatible with Node.js 20
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
